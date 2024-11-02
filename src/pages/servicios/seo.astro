@@ -1,0 +1,63 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const pricingPlans = [
+  {
+    title: 'Básico',
+    price: '499€',
+    features: [
+      'Análisis inicial de SEO',
+      'Optimización de 10 páginas',
+      'Investigación de palabras clave',
+      'Informes mensuales',
+      'Soporte por email'
+    ]
+  },
+  {
+    title: 'Profesional',
+    price: '999€',
+    features: [
+      'Todo lo del plan Básico',
+      'Optimización de 25 páginas',
+      'Contenido SEO mensual',
+      'Link building',
+      'Soporte prioritario'
+    ],
+    isPopular: true
+  },
+  {
+    title: 'Empresa',
+    price: '1999€',
+    features: [
+      'Todo lo del plan Profesional',
+      'Optimización ilimitada',
+      'SEO técnico avanzado',
+      'Estrategia personalizada',
+      'Gestor de cuenta dedicado'
+    ]
+  }
+];
+
+const faqs = [
+  {
+    question: '¿Cuánto tiempo se tarda en ver resultados con el SEO?',
+    answer: 'El SEO es una estrategia a largo plazo. Generalmente, los primeros resultados comienzan a verse entre 3-6 meses, aunque esto puede variar según la competitividad del sector y el estado actual de tu sitio web.'
+  },
+  {
+    question: '¿Qué incluye el análisis inicial de SEO?',
+    answer: 'El análisis inicial incluye una auditoría técnica completa, análisis de palabras clave, evaluación de la competencia, revisión de contenido existente y un informe detallado con recomendaciones específicas.'
+  },
+  {
+    question: '¿Trabajáis con contratos a largo plazo?',
+    answer: 'Ofrecemos flexibilidad en nuestros contratos. Aunque recomendamos un compromiso mínimo de 6 meses para ver resultados significativos, trabajamos mes a mes con nuestros clientes.'
+  }
+];
+---
+
+<ServiceLayout
+  title="Posicionamiento SEO"
+  subtitle="Mejora tu visibilidad en Google y aumenta el tráfico orgánico de calidad a tu sitio web"
+  description="Servicios profesionales de SEO para mejorar el posicionamiento de tu web en buscadores. Estrategias personalizadas y resultados medibles."
+  pricingPlans={pricingPlans}
+  faqs={faqs}
+/>

@@ -1,0 +1,67 @@
+---
+import Layout from './Layout.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import PricingCard from '../components/PricingCard.astro';
+import FAQ from '../components/FAQ.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  description?: string;
+  image?: string;
+  pricingPlans: {
+    title: string;
+    price: string;
+    features: string[];
+    isPopular?: boolean;
+  }[];
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+}
+
+const { title, subtitle, description, image, pricingPlans, faqs } = Astro.props;
+---
+
+<Layout title={`${title} | MarketingPro`} description={description}>
+  <main>
+    <ServiceHero title={title} subtitle={subtitle} image={image} />
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Planes y Precios
+          </h2>
+          <p class="mt-4 text-xl text-gray-600">
+            Elige el plan que mejor se adapte a tus necesidades
+          </p>
+        </div>
+        <div class="mt-16 grid gap-8 lg:grid-cols-3 lg:gap-x-8">
+          {pricingPlans.map((plan) => (
+            <PricingCard {...plan} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Preguntas Frecuentes
+          </h2>
+          <p class="mt-4 text-xl text-gray-600">
+            Resolvemos tus dudas sobre nuestros servicios
+          </p>
+        </div>
+        <div class="mt-16">
+          <FAQ items={faqs} />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

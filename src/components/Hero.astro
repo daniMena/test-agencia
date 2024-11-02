@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const { 
+  title, 
+  subtitle,
+  ctaText = "Contactar Ahora",
+  ctaLink = "/contacto"
+} = Astro.props;
+---
+
+<div class="relative overflow-hidden bg-hero-gradient">
+  <div class="relative max-w-7xl mx-auto py-32 px-4 sm:py-48 sm:px-6 lg:px-8">
+    <h1 class="max-w-4xl mx-auto text-center">
+      {title}
+    </h1>
+    <p class="mt-6 max-w-2xl mx-auto text-center text-lg text-secondary">
+      {subtitle}
+    </p>
+    <div class="mt-10 flex justify-center">
+      <a
+        href={ctaLink}
+        class="px-8 py-4 text-base font-medium rounded-full text-white bg-primary hover:bg-opacity-90 transition-all"
+      >
+        {ctaText}
+      </a>
+    </div>
+  </div>
+</div>
